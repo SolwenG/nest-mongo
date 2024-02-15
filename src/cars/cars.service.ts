@@ -9,7 +9,8 @@ export class CarsService {
     constructor(@InjectModel(Car.name) private readonly carModel: Model<Car>) {}
 
     async create(createCarDto: CreateCarDto): Promise<Car> {
-        return await this.carModel.create(createCarDto)
+        const createCar = await this.carModel.create(createCarDto)
+        return createCar
     }
 
     async findAll(): Promise<Car[]> {
@@ -18,5 +19,12 @@ export class CarsService {
 
     async findById(id: string): Promise<Car> {
         return this.carModel.findById(id).exec()
+    }
+
+    async delete(id: string) {
+        const deleteCar = await this.carModel
+            .findByIdAndDelete({ _id: id })
+            .exec()
+        return deleteCar
     }
 }
