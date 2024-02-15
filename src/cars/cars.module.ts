@@ -4,10 +4,7 @@ import { CarsController } from './cars.controller'
 import { CarsService } from './cars.service'
 
 @Module({
-    imports: [
-        MongooseModule.forRoot('mongodb://localhost:27017/test'),
-        CarsModule,
-    ],
+    imports: [MongooseModule.forRoot('mongodb://localhost:27017/test')],
     controllers: [CarsController],
     providers: [CarsService],
 })
