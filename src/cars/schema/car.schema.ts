@@ -14,5 +14,11 @@ export class Car {
     @Prop()
     description: string
 }
-
 export const CarSchema = SchemaFactory.createForClass(Car)
+
+@Schema()
+export class Status {
+    @Prop()
+    name: string
+}
+export const StatusSchema = SchemaFactory.createForClass(Status)
