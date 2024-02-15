@@ -12,4 +12,8 @@ export class CarsService {
         const createdCar = await this.carModel.create(createCarDto)
         return createdCar
     }
+
+    async findAll(): Promise<Car[]> {
+        return await this.carModel.find().exec()
+    }
 }
