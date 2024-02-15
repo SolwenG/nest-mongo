@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
-import { Car } from './schema/car.schema'
+import { Car } from '../schema/company.schema'
 import { Model } from 'mongoose'
 import { CreateCarDto } from './dto/create-car.dto'
 
