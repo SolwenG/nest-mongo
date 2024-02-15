@@ -9,11 +9,14 @@ export class CarsService {
     constructor(@InjectModel(Car.name) private readonly carModel: Model<Car>) {}
 
     async create(createCarDto: CreateCarDto): Promise<Car> {
-        const createdCar = await this.carModel.create(createCarDto)
-        return createdCar
+        return await this.carModel.create(createCarDto)
     }
 
     async findAll(): Promise<Car[]> {
-        return await this.carModel.find().exec()
+        return this.carModel.find().exec()
+    }
+
+    async findById(id: string): Promise<Car> {
+        return this.carModel.findById(id).exec()
     }
 }
